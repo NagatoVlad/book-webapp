@@ -1,3 +1,13 @@
+const apiUrl = "http://xxxxxx.ngrok.io/books";  // Используй URL, полученный от ngrok
+
+fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+    })
+    .catch(error => {
+        console.error("Ошибка при загрузке данных:", error);
+    });
 // Инициализация Telegram WebApp
 const tg = window.Telegram.WebApp;
 tg.expand(); // Раскрываем приложение на полную высоту
