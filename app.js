@@ -1,4 +1,4 @@
-const apiUrl = "http://xxxxxx.ngrok.io/books";  // Используй URL, полученный от ngrok
+const apiUrl = " https://53da-217-117-235-38.ngrok-free.app";  // Используй URL, полученный от ngrok
 
 fetch(apiUrl)
     .then(response => response.json())
