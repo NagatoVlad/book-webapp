@@ -1,0 +1,85 @@
+/* Общие стили */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--tg-theme-bg-color, #ffffff);
+  color: var(--tg-theme-text-color, #000000);
+}
+.book-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  padding: 16px;
+}
+
+/* Стиль карточки книги */
+.card {
+  background-color: var(--tg-theme-secondary-bg-color, #f9f9f9);
+  color: var(--tg-theme-text-color, #000000);
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+}
+.card .cover {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  object-fit: cover;
+}
+.card .title {
+  font-size: 1.1em;
+  margin: 8px 0 4px;
+}
+.card .author {
+  font-size: 0.9em;
+  color: var(--tg-theme-hint-color, #6c757d);
+  margin: 0 0 8px;
+}
+.card .price {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* Описание книги (скрыто по умолчанию, показывается при открытии) */
+.card .description {
+  display: none;
+  font-size: 0.9em;
+  margin-bottom: 8px;
+}
+.card .description.open {
+  display: block;
+}
+.card .chapters {
+  font-style: italic;
+  color: var(--tg-theme-hint-color, #6c757d);
+}
+
+/* Кнопки в нижней части карточки */
+.buttons {
+  margin-top: auto;
+  display: flex;
+  gap: 8px;
+}
+.details-btn, .buy-btn {
+  flex: 1;
+  padding: 8px;
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+}
+/* Стиль кнопки "Купить" – основной акцентный цвет темы Telegram */
+.buy-btn {
+  background-color: var(--tg-theme-button-color, #0088cc);
+  color: var(--tg-theme-button-text-color, #ffffff);
+}
+/* Стиль кнопки "Подробнее" – нейтральный (вторичный фон темы) */
+.details-btn {
+  background-color: var(--tg-theme-secondary-bg-color, #e0e0e0);
+  color: var(--tg-theme-text-color, #000000);
+}
+.details-btn:hover, .buy-btn:hover {
+  opacity: 0.9;
+}
