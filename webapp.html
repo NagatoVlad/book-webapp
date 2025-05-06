@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Оплата книги через TON</title>
+  <meta charset="UTF-8">
+  <script src="https://unpkg.com/@tonconnect/sdk@latest"></script>
+</head>
+<body>
+  <h2>Оплата книги</h2>
+  <button id="connect">🔐 Подключить кошелёк</button>
+  <button id="pay" disabled>💸 Оплатить</button>
+
+  <script>
+    const connector = new TON_CONNECT.TonConnect();
+
+    document.getElementById('connect').onclick = async () => {
+      await connector.connectWallet();
+      document.getElementById('pay').disabled = false;
+    };
+
+    document.getElementById('pay').onclick = async () => {
+      const tx = {
+        validUntil: Math.floor(Date.now() / 1000) + 360,
+        messages: [
+          {
+            address: "UQDuIjJsP8DBnm0z2X7-5JCko-dzaT8PzQl_2KDuoZZh9U9p",
+            amount: "1000000000", // 1 TON
+            payload: null
+          }
+        ]
+      };
+      await connector.sendTransaction(tx);
+    };
+  </script>
+</body>
+</html>
